@@ -22,7 +22,13 @@
 <div id="page" class="site">
 
   <header id="masthead" class="site-header">
-
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <?php get_template_part( 'template-parts/header/nav' ) ?>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main id="content" class="site-content">

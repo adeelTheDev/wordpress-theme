@@ -35,10 +35,12 @@ class BLOGIFY_THEME {
 
 public  function enqueue_scripts():void {
 	// Register Scripts
-	wp_register_script('blogify-script', GET_THEME_DIRECTORY_URI . '/assets/js/main.script.js', '', filemtime(GET_THEME_DIRECTORY . '/assets/js/main.script.js'), true);
+	wp_register_script('blogify-script', GET_THEME_DIRECTORY_URI . '/assets/js/main.script.js', [], filemtime(GET_THEME_DIRECTORY . '/assets/js/main.script.js'), true);
+	wp_register_script('bootstrap-script', GET_THEME_DIRECTORY_URI . '/assets/library/js/bootstrap.min.js', [], filemtime(GET_THEME_DIRECTORY . '/assets/library/js/bootstrap.min.js'), true);
 
 	// Enqueue Scripts
 	wp_enqueue_script('blogify-script');
+	wp_enqueue_script('bootstrap-script');
 }
 
 }
