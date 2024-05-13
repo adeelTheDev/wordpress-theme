@@ -7,6 +7,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport"
@@ -14,7 +15,16 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<h1>Header.php</h1>
+
+<div id="page" class="site">
+
+  <header id="masthead" class="site-header">
+
+  </header>
+
+  <main id="content" class="site-content">
+
 
