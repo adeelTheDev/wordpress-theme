@@ -21,7 +21,7 @@
 
 <div id="page" class="site">
 
-  <header id="masthead" class="site-header">
+  <header id="masthead" class="site-header bg-light py-1">
     <div class="container">
       <div class="row">
         <div class="col">

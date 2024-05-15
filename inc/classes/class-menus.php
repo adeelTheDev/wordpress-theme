@@ -28,4 +28,27 @@ class Menus {
 		] );
 	}
 
+	public function get_menu_id( string $location ):string|int {
+		$locations = get_nav_menu_locations();
+		$menu_id = $locations[ $location ];
+		return ! empty( $menu_id ) ? $menu_id : '';
+	}
+
+	public function get_menu_items( string|int $menu_id ):void {
+		$menu_items = wp_get_nav_menu_items( $menu_id );
+		print_r( $menu_items );
+	}
+
+	public  function get_child_menu_items( array $menu_array, int $parent_id ):array {
+		$child_menus = [];
+		if( !empty( $menu_array ) && is_array( $menu_array ) && !empty( $parent_id ) ) {
+			foreach ( $menu_array as $menu ) {
+				if( intval( $menu->menu_item_parent ) === $parent_id ) {
+					array_push( $child_menus, $menu );
+				}
+			}
+		}
+		return $child_menus;
+	}
+
 }
