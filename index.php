@@ -10,7 +10,7 @@ get_header();
 ?>
     <div class="primary" id="primary">
         <main id="main" class="main">
-			<?php if ( have_posts() ) : ?>
+			<?php if ( true ) : ?>
                 <div class="container">
 					<?php if ( is_home() && ! is_front_page() ): ?>
                         <header class="page-header py-5 text-center">
@@ -18,24 +18,21 @@ get_header();
 								<?php single_post_title(); ?>
                             </h1>
                         </header>
-					<?php endif; ?>
+					<?php endif; // is_home() && ! is_front_page() ?>
 					<?php
 					$index = 0;
                     $number_of_columns = 3;
                     while ( have_posts() ) : the_post(); ?>
                         <?php if($index % $number_of_columns === 0 ): ?>
                         <div class="row">
-                        <?php endif; ?>
-                        <article class="col-lg-4 col-md-6 col-sm-12">
-                        <?php get_template_part( 'template-parts/content' ); ?>
-                        </article>
+                            <?php endif;
+                            get_template_part( 'template-parts/content' );
+                            $index++;
+                            if( $index % $number_of_columns === 0 ): ?>
+                        </div>
                         <?php
-                        $index++;
-                        if( $index % $number_of_columns === 0 ): ?>
-                            </div>
-                        <?php
-                        endif;
-                    endwhile; //have_posts(); ?>
+                        endif; // $index % $number_of_columns === 0
+                    endwhile; // have_posts(); ?>
                 </div>
 			<?php
 			else :
