@@ -5,7 +5,7 @@
  * @package Blogify
  */
 ?>
-</main> <!-- main#content -->
+</div> <!-- div#content -->
 <div class="container">
   <footer class="py-5">
     <div class="row">
