@@ -20,6 +20,7 @@ if( !defined('BLOGIFY_TEXTDOMAIN') ) {
 
 
 require_once  GET_THEME_DIRECTORY . '/inc/helpers/autoloader.php';
+require_once  GET_THEME_DIRECTORY . '/inc/helpers/template-tags.php';
 
 function blogify_get_theme_instance() {
 	\BLOGIFY_THEME\Inc\BLOGIFY_THEME::get_instance();
