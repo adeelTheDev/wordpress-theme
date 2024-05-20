@@ -40,6 +40,11 @@ class Meta_boxes {
 
 	public function hide_page_title_html( $post ) {
 		$value = get_post_meta( $post->ID, '_hide_page_title', true );
+
+        /**
+		 * Add nonce to verify user
+		 */
+        wp_nonce_field( plugin_basename( __FILE__ ), 'hide_page_title_filed_nonce' );
 		?>
         <div class="components-panel__body">
             <select name="hide_page_title" id="hide-page-title-field" class="postbox"
@@ -60,13 +65,29 @@ class Meta_boxes {
 
     public function save_post_meta_data( $post_id ) {
 
+	    /**
+	     * Return if current user is not permitted to edit current post
+	     */
         if( ! current_user_can( 'edit_post', $post_id ) ) {
             return;
         }
 
+	    /**
+	     * Return if the hide_title_field doesn't exist in $_POSt
+	     */
 	    if( ! array_key_exists( 'hide_page_title', $_POST ) ) {
 		    return;
 	    }
+
+	    /**
+	     * Verify nonce.
+	     */
+        if(
+            ! isset( $_POST[ 'hide_page_title_filed_nonce' ] ) ||
+            ! wp_verify_nonce( $_POST[ 'hide_page_title_filed_nonce' ], plugin_basename( __FILE__ ) )
+        ) {
+            return;
+        }
 
 	    update_post_meta( $post_id, '_hide_page_title', $_POST[ 'hide_page_title' ] );
 
