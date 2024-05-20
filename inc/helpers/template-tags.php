@@ -5,7 +5,7 @@
  * @package Blogify
  */
 
-function get_the_post_custom_thumbnail( $post_id = null, $size = 'featured-large', $attr = [] ) {
+function get_the_post_custom_thumbnail( $post_id = null, $size = 'featured-thumbnail', $attr = [] ) {
 
 	if( ! $post_id ) {
 		$post_id = get_the_ID();
@@ -20,6 +20,6 @@ function get_the_post_custom_thumbnail( $post_id = null, $size = 'featured-large
 
 }
 
-function the_post_custom_thumbnail( $post_id = null, $size = 'featured-large', $attr = [] ):void {
+function the_post_custom_thumbnail( $post_id = null, $size = 'featured-thumbnail', $attr = [] ):void {
 	echo get_the_post_custom_thumbnail( $post_id, $size, $attr );
 }

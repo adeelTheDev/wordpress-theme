@@ -24,7 +24,7 @@ get_header();
                     $number_of_columns = 3;
                     while ( have_posts() ) : the_post(); ?>
                         <?php if($index % $number_of_columns === 0 ): ?>
-                        <div class="row grid grid-col-<?php echo $number_of_columnscd cd ?>">
+                        <div class="row grid grid-col-<?php echo $number_of_columns ?>">
                             <?php endif;
                             get_template_part( 'template-parts/content' );
                             $index++;

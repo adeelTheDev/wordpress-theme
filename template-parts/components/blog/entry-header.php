@@ -19,7 +19,6 @@ $the_post_link = get_the_permalink();
                     $the_post_id,
                     'featured-thumbnail',
                     [
-                        'sizes' => '(max-width: 600px) 600px, 425px',
                         'class' => 'attachment attachment-featured-thumbnail featured-image '
                     ]
                 ); ?>
