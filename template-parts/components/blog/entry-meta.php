@@ -6,7 +6,7 @@
  */
 ?>
 
-<div class="entry-meta">
+<div class="entry-meta mb-3">
     <?php blogify_posted_on(); ?>
     <?php blogify_posted_by(); ?>
 </div>

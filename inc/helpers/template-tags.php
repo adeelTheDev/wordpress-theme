@@ -70,3 +70,33 @@ function blogify_posted_by():void {
 	);
 
 }
+
+function blogify_the_excerpt( $trim_character_count = 0 ) {
+
+	if( ! has_excerpt() || $trim_character_count === 0 ) {
+		the_excerpt();
+		return;
+	}
+
+	$excerpt = wp_strip_all_tags( get_the_excerpt() );
+	$excerpt = substr( $excerpt, 0, $trim_character_count );
+	$excerpt = substr( $excerpt, 0, strrpos( $excerpt, ' ' ) );
+
+	echo $excerpt . '[...]';
+	return;
+
+}
+
+function blogify_read_more ( $more = '' ) {
+
+	if( is_single() ) {
+		return;
+	}
+
+	return sprintf(
+		'<a href="%1$s" class="btn btn-success">%2$s</a>',
+		esc_url( get_the_permalink() ),
+		__( 'Continue Reading', BLOGIFY_TEXTDOMAIN )
+	);
+
+}

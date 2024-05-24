@@ -92,6 +92,7 @@ class BLOGIFY_THEME {
 		add_editor_style();
 
 		add_image_size( 'featured-thumbnail', 356, 237, true  );
+		add_image_size( 'featured-large', 1024, 0, true  );
 
 	}
 

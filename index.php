@@ -10,7 +10,7 @@ get_header();
 ?>
     <div class="primary" id="primary">
         <main id="main" class="main">
-			<?php if ( true ) : ?>
+			<?php if ( have_posts() ) : ?>
                 <div class="container">
 					<?php if ( is_home() && ! is_front_page() ): ?>
                         <header class="page-header py-5 text-center">

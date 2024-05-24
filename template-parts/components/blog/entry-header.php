@@ -8,8 +8,9 @@
 $the_post_id        = get_the_ID();
 $has_post_thumbnail = has_post_thumbnail();
 $the_post_link = get_the_permalink();
-$hide_page_title = get_post_meta( $the_post_id, '_hide_post_title' );
-$title_class = ! empty( $hide_page_title ) && $hide_page_title === 'YES' ? 'd-none' : '';
+$hide_page_title = get_post_meta( $the_post_id, '_hide_page_title', true);
+$title_class = ( ! empty( $hide_page_title ) && $hide_page_title === 'YES' ) ? 'd-none' : '';
+$feature_image_size = is_single() ? 'featured-large': 'featured-thumbnail';
 ?>
 <header class="entry-header">
 
@@ -24,7 +25,7 @@ $title_class = ! empty( $hide_page_title ) && $hide_page_title === 'YES' ? 'd-no
             <a href="<?php echo esc_url( $the_post_link ) ?>">
                 <?php the_post_custom_thumbnail(
                     $the_post_id,
-                    'featured-thumbnail',
+                    $feature_image_size,
                     [
                         'class' => 'attachment attachment-featured-thumbnail featured-image '
                     ]
