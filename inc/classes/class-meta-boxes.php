@@ -73,7 +73,7 @@ class Meta_boxes {
         }
 
 	    /**
-	     * Return if the hide_title_field doesn't exist in $_POSt
+	     * Return if the hide_title_field doesn't exist in $_POST
 	     */
 	    if( ! array_key_exists( 'hide_page_title', $_POST ) ) {
 		    return;
