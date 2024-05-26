@@ -94,3 +94,13 @@ function blogify_read_more ( $more = '' ) {
 	);
 
 }
+
+function blogify_pagination() {
+	$args = [
+		'before_page_number' => '<span class="btn border border-secondary lh-sm">',
+		'after_page_number' => '</span>',
+		'prev_text' => '<span class="btn border border-secondary lh-sm">« Previous</span>',
+		'next_text' => '<span class="btn border border-secondary lh-sm">Next »</span>',
+	];
+	printf( '<div class="blogify-pagination d-flex justify-content-center gap-2">%s</div>', paginate_links( $args ) );
+}

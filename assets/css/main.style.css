@@ -18,3 +18,8 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.page-numbers.current > span {
+  background-color: rgba(var(--bs-secondary-rgb),var(--bs-border-opacity));
+  color: #fff;
+}

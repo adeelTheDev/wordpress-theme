@@ -32,7 +32,9 @@ get_header();
                         </div>
                         <?php
                         endif; // $index % $number_of_columns === 0
-                    endwhile; // have_posts(); ?>
+                    endwhile; // have_posts();
+					blogify_pagination();
+                    ?>
                 </div>
 			<?php
 			else :
