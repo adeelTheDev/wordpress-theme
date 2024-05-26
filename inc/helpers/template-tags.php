@@ -88,7 +88,7 @@ function blogify_read_more ( $more = '' ) {
 	}
 
 	return sprintf(
-		'<a href="%1$s" class="btn btn-success">%2$s</a>',
+		'<div class="mt-3"><a href="%1$s" class="btn btn-success">%2$s</a></div>',
 		esc_url( get_the_permalink() ),
 		__( 'Continue Reading', BLOGIFY_TEXTDOMAIN )
 	);
