@@ -16,8 +16,10 @@ class BLOGIFY_THEME {
 		// Load class.
 		Menus::get_instance();
 		Meta_boxes::get_instance();
+		Sidebars::get_instance();
 
 		$this->setup_hooks();
+		$this->setup_filters();
 	}
 
 	protected  function setup_hooks():void {
@@ -25,6 +27,10 @@ class BLOGIFY_THEME {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
 		add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
+	}
+
+	protected function  setup_filters() {
+		add_filter( 'upload_mimes', [ $this, 'enable_svg_support' ] );
 	}
 
 	public  function enqueue_styles():void {
@@ -86,6 +92,9 @@ class BLOGIFY_THEME {
 
 		add_theme_support( 'align-wide' );
 
+		add_theme_support( 'widgets' );
+		add_theme_support( 'widgets-block-editor' );
+
 		global $content_width;
 		if( ! isset( $content_width ) ) $content_width = 1280;
 
@@ -94,6 +103,11 @@ class BLOGIFY_THEME {
 		add_image_size( 'featured-thumbnail', 356, 237, true  );
 		add_image_size( 'featured-large', 1024, 0, true  );
 
+	}
+
+	public function enable_svg_support( $mimes ) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
 	}
 
 }
